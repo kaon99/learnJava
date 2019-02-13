@@ -17,6 +17,8 @@ public class Controller {
 
 
     public void run() {
+
+        setRangeOfNumbers();
         view.print(View.START_GAME);
         model.setRandomWinnerNumber();
 
@@ -44,9 +46,7 @@ public class Controller {
             gameIsOver = true;
               view.print(model.listNumberUsed.toString());
         }
-//        if (model.game() == 4) {
-//           view.print("Work");
-//        }
+
         showRange();
     }
 
@@ -63,6 +63,24 @@ public class Controller {
         }
 
     }
+
+    public  void  setRangeOfNumbers(){
+        view.print(View.SELECT_MIN_RANGE);
+        if (sc.hasNextInt()) {
+            model.setMinRange(sc.nextInt());
+            view.print(View.SELECT_MAX_RANGE);
+        }
+
+        if (sc.hasNextInt()) {
+            model.setMaxRange(sc.nextInt());
+        }
+        else {
+            view.print(View.WRONG_RANGE);
+        }
+
+        }
+
+
 
     public void showRange() {
 

@@ -46,14 +46,14 @@ public class Model {
     }
 
 
-    public void setMaxAndMinRangeBeforeStart() {
-        setMinRange(MINIMAL);
-        setMaxRange(MAXIMUM);
-    }
+//    public void setMaxAndMinRangeBeforeStart() {
+//        setMinRange(MINIMAL);
+//        setMaxRange(MAXIMUM);
+//    }
 
     public void setRandomWinnerNumber() {
-        setMaxAndMinRangeBeforeStart();
-        int number = MINIMAL + (int) (Math.random() * MAXIMUM );
+        //setMaxAndMinRangeBeforeStart();
+        int number = getMinRange() + (int) (Math.random() * getMaxRange() );
         setWinnerNumber(number);
     }
 
