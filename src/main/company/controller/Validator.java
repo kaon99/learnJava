@@ -1,18 +1,23 @@
 package main.company.controller;
 
 
+import main.company.model.entity.NoteBook;
 import main.company.model.entity.Notes;
 import main.company.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validator implements Regex {
-    private Boolean infoWright = false;
+
 
     Scanner sc = new Scanner(System.in);
     View view = new View();
+    NoteBook noteBook = new NoteBook();
+    List<Notes> noteBookList = noteBook.notebooksList;
     Pattern namePattern = Pattern.compile(nameRegex);
     Pattern surnamePattern = Pattern.compile(surnameRegex);
     Pattern emailPattern = Pattern.compile(email);
@@ -31,9 +36,19 @@ public class Validator implements Regex {
 
 if (cheakError(name,surname,email) == true){
   Notes  note =   createNewNote(name,surname,email);
-    view.printMassage(note.toString());
+    System.out.println(note.toString());
+    addToArray(note);
 }
 else view.printMassage(View.ERROR_CREATE);
+
+    }
+
+
+    public  void  addToArray (Notes note) {
+        noteBook.addToNotebookList(note);
+        System.out.println(" лол " + noteBook);
+
+        System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::;;");
 
     }
 
