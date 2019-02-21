@@ -51,10 +51,11 @@ public class Model {
 //        setMaxRange(MAXIMUM);
 //    }
 
-    public void setRandomWinnerNumber() {
+    public int setRandomWinnerNumber() {
         //setMaxAndMinRangeBeforeStart();
         int number = getMinRange() + (int) (Math.random() * getMaxRange() );
-        setWinnerNumber(number);
+       return number;
+               //setWinnerNumber(number);
     }
 
     public int game() {
